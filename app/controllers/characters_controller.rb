@@ -28,6 +28,7 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.save
+        character.avatar.attach(params[:avatar]) if params[:avatar]
         format.html { redirect_to @character, notice: 'character was successfully created.' }
         format.json { render :show, status: :created, location: @character }
       else
@@ -42,6 +43,7 @@ class CharactersController < ApplicationController
   def update
     respond_to do |format|
       if @character.update(character_params)
+        character.avatar.attach(params[:avatar]) if params[:avatar]
         format.html { redirect_to @character, notice: 'character was successfully updated.' }
         format.json { render :show, status: :ok, location: @character }
       else
@@ -69,6 +71,6 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:display_name)
+      params.require(:character).permit(:display_name, :avatar)
     end
 end
