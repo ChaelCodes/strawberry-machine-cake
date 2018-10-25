@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pixes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pixs.each do |pix| %>
+      <tr>
+        <td><%= pix.character %></td>
+        <td><%= pix.msg %></td>
+        <td><%= link_to 'Show', pix %></td>
+        <td><%= link_to 'Edit', edit_pix_path(pix) %></td>
+        <td><%= link_to 'Destroy', pix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pix', new_pix_path %>
