@@ -12,5 +12,7 @@
 
 <p>Created at: <%= @pix.created_at %> </p>
 
+<%= render 'view', pix: @pix %>
+
 <%= link_to 'Edit', edit_pix_path(@pix) %> |
 <%= link_to 'Back', pixes_path %>

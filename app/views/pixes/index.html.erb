@@ -14,7 +14,7 @@
   <tbody>
     <% @pixs.each do |pix| %>
       <tr>
-        <td><%= pix.character %></td>
+        <td><%= pix.character.display_name %></td>
         <td><%= pix.msg %></td>
         <td><%= link_to 'Show', pix %></td>
         <td><%= link_to 'Edit', edit_pix_path(pix) %></td>

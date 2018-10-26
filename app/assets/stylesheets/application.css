@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.u-inline-block {
+    display: inline-block;
+}

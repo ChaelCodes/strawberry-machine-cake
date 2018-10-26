@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_025649) do
+ActiveRecord::Schema.define(version: 2018_10_26_180620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2018_10_25_025649) do
     t.text "display_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color"
+    t.string "handle"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -56,9 +58,18 @@ ActiveRecord::Schema.define(version: 2018_10_25_025649) do
     t.bigint "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "scenario_id"
     t.index ["character_id"], name: "index_pixes_on_character_id"
+    t.index ["scenario_id"], name: "index_pixes_on_scenario_id"
+  end
+
+  create_table "scenarios", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "likes", "characters"
   add_foreign_key "likes", "pixes"
+  add_foreign_key "pixes", "scenarios"
 end
