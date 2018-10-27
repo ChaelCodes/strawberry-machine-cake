@@ -1,19 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% if @character.avatar.attached? %>
-  <%= image_tag(@character.avatar, size: 250) %>
-<% end %>
-<div style="background-color:<%= @character.color %>">
-  <p>
-    <strong>Name:</strong>
-    <%= @character.display_name %>
-  </p>
-
-  <p>
-    <strong>Handle:</strong>
-    <%= @character.handle %>
-  </p>
-</div>
+<%= render 'header', character: @character %>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>

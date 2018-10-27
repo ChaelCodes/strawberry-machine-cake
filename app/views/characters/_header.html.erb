@@ -1,0 +1,13 @@
+<div class="character-header" style="background-color:<%= character.color %>">
+    <div class="u-inline-block">
+        <% if character.avatar.attached? %>
+            <%= image_tag(character.avatar, size: 100) %>
+        <% end %>
+    </div>
+    <div class="u-inline-block handle">
+        <a href="<%= url_for character %>">
+            <%= content_tag :div, character.display_name %>
+            <%= content_tag :div, character.handle %>
+        </a>
+    </div>
+</div>

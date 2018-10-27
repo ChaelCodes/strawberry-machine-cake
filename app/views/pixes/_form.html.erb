@@ -12,16 +12,19 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :scenario_id %>
+    <%= form.collection_select :scenario_id, Scenario.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :character_id %>
     <%= form.collection_select :character_id, Character.all, :id, :display_name %>
   </div>
 
   <div class="field">
     <%= form.label :message %>
-    <%= form.text_field :msg %>
+    <%= form.text_area :msg %>
   </div>
-
-
 
   <div class="actions">
     <%= form.submit %>

@@ -1,14 +1,4 @@
 <div class="pix">
-    <div style="background-color:<%= pix.color %>">
-        <div class="u-inline-block">
-            <% if pix.character.avatar.attached? %>
-                <%= image_tag(pix.character.avatar, size: 100) %>
-            <% end %>
-        </div>
-        <div class="u-inline-block ">
-            <%= content_tag :div, pix.character.display_name %>
-            <%= content_tag :div, pix.character.handle %>
-        </div>
-    </div>
+    <%= render 'characters/header', character: pix.character %>
     <%= content_tag :p, pix.msg %>
 </div>
