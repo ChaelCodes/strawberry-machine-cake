@@ -28,7 +28,7 @@ class PixesController < ApplicationController
 
     respond_to do |format|
       if @pix.save
-        format.html { redirect_to @pix, notice: 'pix was successfully created.' }
+        format.html { redirect_to @pix.scenario || @pix.character, notice: 'pix was successfully created.' }
         format.json { render :show, status: :created, location: @pix }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class PixesController < ApplicationController
   def destroy
     @pix.destroy
     respond_to do |format|
-      format.html { redirect_to pixs_url, notice: 'pix was successfully destroyed.' }
+      format.html { redirect_to pixes_url, notice: 'pix was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
