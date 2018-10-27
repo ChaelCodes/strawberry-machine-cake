@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
-
-<%= render 'header', character: @character %>
-
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
+
+<%= render 'header', character: @character %>
+<% @character.pixes.without_scenario.each do |pix| %>
+    <%= render 'pixes/view', pix: pix %>
+<% end %>
