@@ -12,7 +12,7 @@
   <%= form_with model: Pix.new do |f| %>
     <%= f.hidden_field :scenario_id, value: @scenario.id %>
     <%= f.collection_select :character_id, Character.all, :id, :display_name %>
-    <%= f.text_field :msg, size: 80 %>
+    <%= f.text_field :msg %>
     <%= f.submit 'Post', type: 'submit' %>
   <% end %>
 </div>
