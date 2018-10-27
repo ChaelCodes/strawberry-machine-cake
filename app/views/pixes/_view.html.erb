@@ -1,0 +1,12 @@
+<div class="pix">
+    <div style="background-color:<%= pix.color %>">
+        <div class="u-inline-block">
+            <%= image_tag(pix.character.avatar, size: 100) %>
+        </div>
+        <div class="u-inline-block ">
+            <%= content_tag :div, pix.character.display_name %>
+            <%= content_tag :div, pix.character.handle %>
+        </div>
+    </div>
+    <%= content_tag :p, pix.msg %>
+</div>

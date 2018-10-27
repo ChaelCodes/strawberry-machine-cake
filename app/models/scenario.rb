@@ -1,0 +1,2 @@
+class Scenario < ApplicationRecord
+end
