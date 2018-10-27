@@ -1,12 +1,19 @@
 // Place all the styles related to the character controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.character-header {
+    padding: 5px;
+}
 .handle {
+    padding-top: 5px;
     font-family: 'Josefin Sans';
     color: #FFF;
+    vertical-align: top;
+    font-size: 18px;
 
     a {
         text-decoration-line: none;
+        margin: 0 auto;
 
         &:visited {
             color: #FFF;
