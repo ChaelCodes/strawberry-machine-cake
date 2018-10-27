@@ -69,6 +69,6 @@ class PixesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pix_params
-      params.require(:pix).permit(:character_id, :msg)
+      params.require(:pix).permit(:character_id, :scenario_id, :msg)
     end
 end
