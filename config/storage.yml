@@ -6,9 +6,21 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-production:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
+google:
+  service: GCS
+  project: "strawberry-machine-cake"
+  bucket: "smc-prod"
+  credentials:
+    type: "service_account"
+    project_id: "strawberry-machine-cake"
+    private_key_id: <%= ENV['GCS_PRIVATE_KEY_ID'] %>
+    private_key: <%= ENV['GCS_PRIVATE_KEY'] %>
+    client_email: "strawberry-machine-cake@strawberry-machine-cake.iam.gserviceaccount.com"
+    client_id: "110820244189863685293"
+    auth_uri: "https://accounts.google.com/o/oauth2/auth"
+    token_uri: "https://accounts.google.com/o/oauth2/token"
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+    client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/strawberry-machine-cake%40strawberry-machine-cake.iam.gserviceaccount.com"
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
