@@ -1,7 +1,9 @@
 <div class="pix">
     <div style="background-color:<%= pix.color %>">
         <div class="u-inline-block">
-            <%= image_tag(pix.character.avatar, size: 100) %>
+            <% if pix.character.avatar.attached? %>
+                <%= image_tag(pix.character.avatar, size: 100) %>
+            <% end %>
         </div>
         <div class="u-inline-block ">
             <%= content_tag :div, pix.character.display_name %>

@@ -1,17 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Character:</strong>
-  <%= @pix.character.display_name %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @pix.msg %>
-</p>
-
-<p>Created at: <%= @pix.created_at %> </p>
-
 <%= render 'view', pix: @pix %>
 
 <%= link_to 'Edit', edit_pix_path(@pix) %> |

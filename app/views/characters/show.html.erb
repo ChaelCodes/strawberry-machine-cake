@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag(@character.avatar, size: 250) %>
+<% if @character.avatar.attached? %>
+  <%= image_tag(@character.avatar, size: 250) %>
+<% end %>
 <div style="background-color:<%= @character.color %>">
   <p>
     <strong>Name:</strong>
