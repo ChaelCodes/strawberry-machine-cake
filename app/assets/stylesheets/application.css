@@ -14,14 +14,6 @@
  *= require_self
  */
 
-p {
-    font-family: "Josefin Sans";
-}
-
-a {
-    font-family: "Josefin Sans";
-}
-
 .u-inline-block {
     display: inline-block;
 }
