@@ -82,3 +82,10 @@ div {
 label {
   display: block;
 }
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: font-url('Josefin_Sans/JosefinSans-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
