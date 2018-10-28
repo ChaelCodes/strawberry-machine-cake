@@ -1,7 +1,7 @@
 <%= form_with(model: pix, local: true) do |form| %>
   <% if pix.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pix.errors.count, "error") %> prohibited this pix from being saved:</h2>
+    <div class="alert alert-danger" role="alert">
+      <h6 class="alert-heading"><%= pluralize(pix.errors.count, "error") %> prohibited this pix from being saved:</h6>
 
       <ul>
       <% pix.errors.full_messages.each do |message| %>
@@ -13,20 +13,20 @@
 
   <div class="field">
     <%= form.label :scenario_id %>
-    <%= form.collection_select :scenario_id, Scenario.all, :id, :name, include_blank: true %>
+    <%= form.collection_select :scenario_id, Scenario.all, :id, :name, { include_blank: true }, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :character_id %>
-    <%= form.collection_select :character_id, Character.all, :id, :display_name %>
+    <%= form.collection_select :character_id, Character.all, :id, :display_name, {}, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :message %>
-    <%= form.text_area :msg %>
+    <%= form.text_area :msg, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save', class: 'btn' %>
   </div>
 <% end %>

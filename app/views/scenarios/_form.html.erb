@@ -1,7 +1,7 @@
 <%= form_with(model: scenario, local: true) do |form| %>
   <% if scenario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(scenario.errors.count, "error") %> prohibited this scenario from being saved:</h2>
+     <div class="alert alert-danger" role="alert">
+      <h6 class="alert-heading"><%= pluralize(scenario.errors.count, "error") %> prohibited this scenario from being saved:</h6>
 
       <ul>
       <% scenario.errors.full_messages.each do |message| %>
@@ -13,10 +13,10 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save', class: 'btn' %>
   </div>
 <% end %>
