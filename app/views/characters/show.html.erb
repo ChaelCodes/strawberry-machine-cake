@@ -1,8 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div id="notice" class="alert alert-success"><%= notice %></div>
+
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
 
-<%= render 'header', character: @character %>
+<div id="new-pix">
+  <%= render 'header', character: @character %>
+    <div>
+      <%= form_with model: Pix.new do |f| %>
+        <%= f.hidden_field :character_id, value: @character.id %>
+        <%= f.text_area :msg, placeholder: 'New pix here.', class: 'form-control' %>
+        <%= f.submit 'Post', type: 'submit', class: 'btn btn-outline-dark' %>
+      <% end %>
+    </div>
+</div>
+
 <% @character.pixes.without_scenario.each do |pix| %>
-    <%= render 'pixes/view', pix: pix %>
+  <%= render 'pixes/view', pix: pix %>
 <% end %>
