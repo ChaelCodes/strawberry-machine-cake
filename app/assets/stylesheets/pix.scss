@@ -2,11 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .pix {
-    margin: 10px;
-    border: 1px solid black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  margin-bottom: 10px;
 
-    p {
-        padding: 10px;
-        font-size: 16px;
-    }
+  p {
+    padding: 10px;
+    font-size: 16px;
+  }
 }
