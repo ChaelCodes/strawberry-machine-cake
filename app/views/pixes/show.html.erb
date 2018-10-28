@@ -1,4 +1,6 @@
-<div id="notice" class="alert alert-success"><%= notice %></div>
+<% if notice %>
+  <div id="notice" class="alert alert-success"><%= notice %></div>
+<% end %>
 
 <%= render 'view', pix: @pix %>
 

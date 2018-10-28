@@ -1,4 +1,6 @@
-<div id="notice" class="alert alert-success"><%= notice %></div>
+<% if notice %>
+  <div id="notice" class="alert alert-success"><%= notice %></div>
+<% end %>
 
 <h1><%= @scenario.name %></h1>
 <%= link_to 'Edit', edit_scenario_path(@scenario) %> |

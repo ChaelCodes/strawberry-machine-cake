@@ -1,4 +1,6 @@
-<div id="notice" class="alert alert-success"><%= notice %></div>
+<% if notice %>
+  <div id="notice" class="alert alert-success"><%= notice %></div>
+<% end %>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
