@@ -11,7 +11,7 @@
       <%= form_with model: Pix.new do |f| %>
         <%= f.hidden_field :character_id, value: @character.id %>
         <%= f.text_area :msg, placeholder: 'New pix here.', class: 'form-control' %>
-        <%= f.submit 'Post', type: 'submit', class: 'btn btn-outline-dark' %>
+        <%= f.submit 'Post', type: 'submit', class: 'btn btn-outline-light' %>
       <% end %>
     </div>
 </div>

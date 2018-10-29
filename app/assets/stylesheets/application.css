@@ -17,3 +17,7 @@
 .u-inline-block {
     display: inline-block;
 }
+
+.u-text-white {
+  color: white;
+}

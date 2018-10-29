@@ -5,6 +5,7 @@ body {
   font-family: 'Josefin Sans', helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  height: 100%;
 }
 
 p, ol, ul, td {
@@ -84,8 +85,8 @@ label {
 }
 
 @font-face {
-    font-family: 'Josefin Sans';
-    src: font-url('Josefin_Sans/JosefinSans-Light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Josefin Sans';
+  src: font-url('Josefin_Sans/JosefinSans-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
