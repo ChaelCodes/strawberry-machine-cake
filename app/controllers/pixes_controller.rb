@@ -27,6 +27,7 @@ class PixesController < ApplicationController
     @pix = Pix.new(pix_params)
 
     respond_to do |format|
+      @pix.images.attach(params[:images]) if params[:images]
       if @pix.save
         format.html { redirect_to @pix.scenario || @pix.character, notice: 'pix was successfully created.' }
         format.json { render :show, status: :created, location: @pix }
@@ -41,6 +42,7 @@ class PixesController < ApplicationController
   # PATCH/PUT /pixes/1.json
   def update
     respond_to do |format|
+      @pix.images.attach(params[:images]) if params[:images]
       if @pix.update(pix_params)
         format.html { redirect_to @pix, notice: 'pix was successfully updated.' }
         format.json { render :show, status: :ok, location: @pix }
@@ -69,6 +71,6 @@ class PixesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pix_params
-      params.require(:pix).permit(:character_id, :scenario_id, :msg)
+      params.require(:pix).permit(:character_id, :scenario_id, :msg, images: [])
     end
 end

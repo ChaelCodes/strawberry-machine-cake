@@ -1,4 +1,28 @@
 <div class="pix">
   <%= render 'characters/header', character: pix.character %>
   <%= content_tag :p, pix.msg %>
+  <% if pix.images.attached? %>
+    <div id="pixImages" class="carousel slide">
+      <ol class="carousel-indicators">
+        <% pix.images.each_with_index do |image, i| %>
+          <li data-target="#pixImages" data-slide-to="<%= i %>" class="<%= 'active' if i ==0 %>"></li>
+        <% end %>
+      </ol>
+      <div class="carousel-inner">
+        <% pix.images.each_with_index do |image, i| %>
+          <div class="<%= i==0 ? 'carousel-item active' : 'carousel-item' %>">
+            <%= image_tag image, class: 'pix-image' %>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#pixImages" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#pixImages" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <% end %>
 </div>

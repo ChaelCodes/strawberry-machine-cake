@@ -17,6 +17,13 @@
     padding: 10px;
     font-size: 16px;
   }
+
+  .pix-image {
+    width: 100%;
+    max-width: 750px;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 body.show {

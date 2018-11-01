@@ -26,6 +26,11 @@
     <%= form.text_area :msg, class: 'form-control' %>
   </div>
 
+  <div class="field">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit 'Save', class: 'btn' %>
   </div>
