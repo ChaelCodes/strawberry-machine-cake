@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_26_180620) do
+ActiveRecord::Schema.define(version: 2018_11_14_200743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 2018_10_26_180620) do
     t.datetime "updated_at", null: false
     t.string "color"
     t.string "handle"
+    t.string "state"
+    t.integer "version"
+    t.bigint "previous_character_id"
+    t.index ["previous_character_id"], name: "index_characters_on_previous_character_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -69,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_180620) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "characters", "characters", column: "previous_character_id"
   add_foreign_key "likes", "characters"
   add_foreign_key "likes", "pixes"
   add_foreign_key "pixes", "scenarios"
