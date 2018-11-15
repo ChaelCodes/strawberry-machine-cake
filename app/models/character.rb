@@ -5,6 +5,8 @@ class Character < ApplicationRecord
 
   has_one_attached :avatar
 
+  scope :active, -> { where(state: 'active') }
+
   def deactivate
     update(state: 'inactive')
   end

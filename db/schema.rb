@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_200743) do
     t.datetime "updated_at", null: false
     t.string "color"
     t.string "handle"
-    t.string "state"
+    t.string "state", default: "active"
     t.integer "version"
     t.bigint "previous_character_id"
     t.index ["previous_character_id"], name: "index_characters_on_previous_character_id"

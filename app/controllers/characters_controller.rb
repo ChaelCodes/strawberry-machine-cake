@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.json
   def index
-    @characters = Character.all
+    @characters = Character.active
   end
 
   # GET /characters/1
