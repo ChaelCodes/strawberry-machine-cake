@@ -1,7 +1,7 @@
 class Character < ApplicationRecord
   has_many :pixes
   has_many :likes
-  belongs_to :previous_character, class_name: 'Character'
+  belongs_to :previous_character, class_name: 'Character', optional: true
 
   has_one_attached :avatar
 
