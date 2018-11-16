@@ -37,7 +37,7 @@ class CharactersController < ApplicationController
       @character.previous_character&.deactivate
 
       if @character.valid?
-        format.html { redirect_to @character, notice: 'character was successfully created.' }
+        format.html { redirect_to @character, status: :created, notice: 'character was successfully created.' }
         format.json { render :show, status: :created, location: @character }
       else
         format.html { render :new }

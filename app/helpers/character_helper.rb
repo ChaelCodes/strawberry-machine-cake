@@ -1,5 +1,5 @@
 module CharacterHelper
-  def chara_params(character)
+  def iterate_chara_params(character)
     { 'character': {
         'display_name': character.display_name,
         'handle': character.handle,
