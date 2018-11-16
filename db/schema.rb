@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_200743) do
+ActiveRecord::Schema.define(version: 2018_11_16_234811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 2018_11_14_200743) do
     t.integer "version"
     t.bigint "previous_character_id"
     t.index ["previous_character_id"], name: "index_characters_on_previous_character_id"
+  end
+
+  create_table "characters_scenarios", id: false, force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "scenario_id", null: false
+    t.index ["character_id"], name: "index_characters_scenarios_on_character_id"
+    t.index ["scenario_id"], name: "index_characters_scenarios_on_scenario_id"
   end
 
   create_table "likes", force: :cascade do |t|
