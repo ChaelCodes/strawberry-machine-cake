@@ -3,4 +3,5 @@
 <%= render 'form', like: @character %>
 
 <%= link_to 'Show', @character %> |
+<%= link_to 'Iterate', new_character_path(iterate_chara_params(@character)) %> |
 <%= link_to 'All Characters', characters_path %>

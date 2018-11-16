@@ -19,3 +19,10 @@
 <% @character.pixes.without_scenario.each do |pix| %>
   <%= render 'pixes/view', pix: pix %>
 <% end %>
+
+<% if @character.previous_character %>
+  <%= link_to 'Previous', @character.previous_character %>
+<% end %>
+<% if @character.next_character %>
+  <%= link_to 'Next', @character.next_character %>
+<% end %>

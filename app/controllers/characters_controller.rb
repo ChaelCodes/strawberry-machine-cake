@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.json
   def index
-    @characters = Character.all
+    @characters = Character.active
   end
 
   # GET /characters/1
@@ -14,7 +14,11 @@ class CharactersController < ApplicationController
 
   # GET /characters/new
   def new
-    @character = Character.new
+    if params['character']
+      @character = Character.new(character_params)
+    else
+      @character = Character.new
+    end
   end
 
   # GET /characters/1/edit
@@ -24,12 +28,16 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.json
   def create
-    @character = Character.new(character_params)
-
     respond_to do |format|
+      @character = Character.new(character_params)
+
       if @character.save
         character.avatar.attach(params[:avatar]) if params[:avatar]
-        format.html { redirect_to @character, notice: 'character was successfully created.' }
+      end
+      @character.previous_character&.deactivate
+
+      if @character.valid?
+        format.html { redirect_to @character, status: :created, notice: 'character was successfully created.' }
         format.json { render :show, status: :created, location: @character }
       else
         format.html { render :new }
@@ -44,6 +52,9 @@ class CharactersController < ApplicationController
     respond_to do |format|
       if @character.update(character_params)
         character.avatar.attach(params[:avatar]) if params[:avatar]
+      end
+
+      if @character.valid?
         format.html { redirect_to @character, notice: 'character was successfully updated.' }
         format.json { render :show, status: :ok, location: @character }
       else
@@ -71,6 +82,6 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:display_name, :handle, :color, :avatar)
+      params.require(:character).permit(:display_name, :handle, :color, :avatar, :previous_character_id)
     end
 end
