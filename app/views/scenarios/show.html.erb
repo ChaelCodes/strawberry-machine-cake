@@ -15,7 +15,7 @@
     <%= f.hidden_field :scenario_id, value: @scenario.id %>
     <div class="form-row">
       <div class="col-3">
-        <%= f.collection_select :character_id, Character.all, :id, :display_name, {}, class: 'form-control' %>
+        <%= f.collection_select :character_id, @scenario.characters, :id, :display_name, {}, class: 'form-control' %>
       </div>
       <div class="col-8">
         <%= f.text_field :msg, class: 'form-control' %>

@@ -62,13 +62,13 @@ class ScenariosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_scenario
-      @scenario = Scenario.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_scenario
+    @scenario = Scenario.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def scenario_params
-      params.require(:scenario).permit(:name)
-    end
+  # Never trust parameters from the internet, only allow the white list through.
+  def scenario_params
+    params.require(:scenario).permit(:name, character_ids: [])
+  end
 end

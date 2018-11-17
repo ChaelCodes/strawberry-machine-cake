@@ -16,6 +16,18 @@
     <%= form.text_field :name, class: 'form-control' %>
   </div>
 
+  <div class="field">
+    <%= form.label :attending_characters %>
+    <%= form.collection_check_boxes :character_ids, Character.all, :id, :itself do |m| %>
+      <div class="mb-2">
+        <%= m.check_box(class: 'form-control col-1 d-inline-block align-bottom') %>
+        <div class="col-8 d-inline-block">
+          <%= render 'characters/header', character: Character.find_by(id: m.value) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit 'Save', class: 'btn' %>
   </div>
