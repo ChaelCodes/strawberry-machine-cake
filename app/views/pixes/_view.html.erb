@@ -1,4 +1,4 @@
-<div class="pix">
+<div class="pix" id=<%= "pix-#{pix.id}" %>>
   <%= render 'characters/header', character: pix.character %>
   <%= content_tag :p, pix.msg %>
   <% if pix.images.attached? %>
