@@ -44,7 +44,7 @@ class PixesController < ApplicationController
     respond_to do |format|
       @pix.images.attach(params[:images]) if params[:images]
       if @pix.update(pix_params)
-        format.html { redirect_to @pix, notice: 'pix was successfully updated.' }
+        format.html { redirect_to go_to_pix(@pix), notice: 'pix was successfully updated.' }
         format.json { render :show, status: :ok, location: @pix }
       else
         format.html { render :edit }
