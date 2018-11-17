@@ -29,7 +29,10 @@ class PixesController < ApplicationController
     respond_to do |format|
       @pix.images.attach(params[:images]) if params[:images]
       if @pix.save
-        format.html { redirect_to @pix.scenario || @pix.character, notice: 'pix was successfully created.' }
+        format.html do
+          redirect_to go_to_pix(@pix),
+                      notice: 'pix was successfully created.'
+        end
         format.json { render :show, status: :created, location: @pix }
       else
         format.html { render :new }
@@ -44,7 +47,10 @@ class PixesController < ApplicationController
     respond_to do |format|
       @pix.images.attach(params[:images]) if params[:images]
       if @pix.update(pix_params)
-        format.html { redirect_to @pix, notice: 'pix was successfully updated.' }
+        format.html do
+          redirect_to go_to_pix(@pix),
+                      notice: 'pix was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @pix }
       else
         format.html { render :edit }
@@ -64,13 +70,21 @@ class PixesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pix
-      @pix = Pix.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pix
+    @pix = Pix.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def pix_params
-      params.require(:pix).permit(:character_id, :scenario_id, :msg, images: [])
+  # Never trust parameters from the internet, only allow the white list through.
+  def pix_params
+    params.require(:pix).permit(:character_id, :scenario_id, :msg, images: [])
+  end
+
+  def go_to_pix(pix)
+    if pix.scenario
+      scenario_path pix.scenario, anchor: "pix-#{pix.id}"
+    else
+      character_path pix.character, anchor: "pix-#{pix.id}"
     end
+  end
 end

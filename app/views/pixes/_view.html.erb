@@ -1,4 +1,4 @@
-<div class="pix">
+<div class="pix" id=<%= "pix-#{pix.id}" %>>
   <%= render 'characters/header', character: pix.character %>
   <%= content_tag :p, pix.msg %>
   <% if pix.images.attached? %>
@@ -25,4 +25,5 @@
       </a>
     </div>
   <% end %>
+  <span class="text-right pr-1"><%= link_to 'Edit', edit_pix_path(pix) %></span>
 </div>
