@@ -9,6 +9,10 @@ class Character < ApplicationRecord
 
   scope :active, -> { where(state: 'active') }
 
+  def name_and_version
+    "#{display_name} #{version}"
+  end
+
   def deactivate
     update(state: 'inactive')
   end

@@ -16,6 +16,11 @@
     <%= form.text_field :name, class: 'form-control' %>
   </div>
 
+  <div class="field">
+    <%= form.label :attending_characters %>
+    <%= form.collection_select :character_ids, Character.all, :id, :name_and_version, {}, multiple: true, class: 'form-control' %>
+  </div>
+
   <div class="actions">
     <%= form.submit 'Save', class: 'btn' %>
   </div>
