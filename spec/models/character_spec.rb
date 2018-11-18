@@ -38,4 +38,35 @@ describe Character do
       expect(character.state).to eq 'inactive'
     end
   end
+
+  describe '#deactivate_previous_character' do
+    subject { character.deactivate_previous_character }
+
+    context 'without previous character' do
+      it { expect { subject }.not_to raise_error }
+    end
+
+    context 'with previous character' do
+      let(:previous_character) { create(:character) }
+      let(:character) { build(:character, previous_character: previous_character) }
+
+      it 'deactivates prior character upon create' do
+        expect(previous_character).to receive(:deactivate).and_call_original
+        subject
+        expect(previous_character.reload.state).to eq('inactive')
+      end
+    end
+  end
+
+  describe '#name_and_version' do
+    subject { character.name_and_version }
+
+    it { is_expected.to eq '7ara' }
+
+    context 'named and versioned character' do
+      let(:character) { build :character, version: 2 }
+
+      it { is_expected.to eq '7ara 2' }
+    end
+  end
 end
