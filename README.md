@@ -1,7 +1,7 @@
 # README
 
 ## Pixie
-Pixie is a story-telling content-generation web app that emulates social media. Build characters, and post what's happening on your character.
+Pixie is a story-telling content-generation web app that emulates social media. Build characters, and post what's happening on your character sheet or in a particular scenario.
 
 ## Ruby version: 2.5.3
 
