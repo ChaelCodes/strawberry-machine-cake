@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :character_id %>
-    <%= form.collection_select :character_id, Character.all, :id, :display_name, {}, class: 'form-control' %>
+    <%= form.collection_select :character_id, Character.all, :id, :name_and_version, {}, class: 'form-control' %>
   </div>
 
   <div class="field">

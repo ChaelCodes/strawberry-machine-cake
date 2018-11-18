@@ -34,7 +34,6 @@ class CharactersController < ApplicationController
       if @character.save
         character.avatar.attach(params[:avatar]) if params[:avatar]
       end
-      @character.previous_character&.deactivate
 
       if @character.valid?
         format.html { redirect_to @character, status: :created, notice: 'character was successfully created.' }

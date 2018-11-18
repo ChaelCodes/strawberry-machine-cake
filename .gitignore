@@ -23,6 +23,9 @@
 /public/assets
 .byebug_history
 
+# Do not store documentation - regenerate each time
+/doc/
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 coverage
