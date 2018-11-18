@@ -1,26 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Pixie
+Pixie is a story-telling content-generation web app that emulates social media. Build characters, and post what's happening on your character.
 
-Things you may want to cover:
+## Ruby version: 2.5.3
 
-* Ruby version: 2.5.3
+## System dependencies
 
-* System dependencies
+## Configuration
 
-* Configuration
+## Database creation
 
-* Database creation
+## Database initialization
 
-* Database initialization
 ## Documentation
 https://www.rubydoc.info/github/ChaelCodes/strawberry-machine-cake/master/index
 
 ## How to run the test suite
 `bundle exec rspec`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Services (job queues, cache servers, search engines, etc.)
+None - yet
 
 ## Deployment instructions
 Pushing to master triggers the deployment pipe on Heroku.
@@ -32,3 +32,14 @@ Pushing to master triggers the deployment pipe on Heroku.
   * start postgres database `sudo service postgresql start`
   * run database migrations `rake db:migrate`
   * start rails server `rails s -b $IP -p $PORT`
+  
+## Setup Steps for Code Anywhere
+Follow this: https://diver.diveintocode.jp/seminar_documents/rails00_codeanywhere_en#On%20the%20merits%20of%20using%20Codeanywhere%20and%20the%20work%20to%20be%20done%20today
+ * Create a container (Ubuntu + Ruby)
+ * rvm install 'ruby-2.5.3'
+ * sudo apt-get install libpq-dev
+ * bundle
+ * sudo apt-get install postgresql postgresql-contrib
+ * STEPS
+ * sudo service postgresql start
+ * rake db:reset
