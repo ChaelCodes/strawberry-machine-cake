@@ -1,5 +1,5 @@
 class ScenariosController < ApplicationController
-  before_action :set_scenario, only: [:show, :edit, :update, :destroy]
+  before_action :set_scenario, only: %i[show edit update destroy]
 
   # GET /scenarios
   # GET /scenarios.json
