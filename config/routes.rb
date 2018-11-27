@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :likes
   resources :pixes
   resources :scenarios
+  # devise_for :users
 end
