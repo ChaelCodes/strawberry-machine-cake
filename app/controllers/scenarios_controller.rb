@@ -1,5 +1,6 @@
 class ScenariosController < ApplicationController
   before_action :set_scenario, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[create update destroy]
 
   # GET /scenarios
   # GET /scenarios.json
