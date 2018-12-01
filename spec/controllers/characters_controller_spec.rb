@@ -24,7 +24,7 @@ RSpec.describe CharactersController, type: :controller do
 
    describe "POST #create" do
     context "with valid params" do
-      it "creates a new User" do
+      it "creates a new Character" do
         expect {
           post :create, params: { character: { display_name: 'Ace Hadoop' } }
         }.to change(Character, :count).by(1)
@@ -49,7 +49,7 @@ RSpec.describe CharactersController, type: :controller do
     # end
   end
 
-   describe "POST #create" do
+   describe "PUT #update" do
     let(:character) { create :character }
 
     context "with valid params" do

@@ -1,5 +1,6 @@
 class PixesController < ApplicationController
-  before_action :set_pix, only: [:show, :edit, :update, :destroy]
+  before_action :set_pix, only: %i[show edit update destroy]
+  before_action :build_pix, only: %i[new create]
 
   # GET /pixs
   # GET /pixs.json
@@ -7,31 +8,15 @@ class PixesController < ApplicationController
     @pixs = Pix.all
   end
 
-  # GET /pixes/1
-  # GET /pixes/1.json
-  def show
-  end
-
-  # GET /pixes/new
-  def new
-    @pix = Pix.new
-  end
-
-  # GET /pixes/1/edit
-  def edit
-  end
-
   # POST /pixes
   # POST /pixes.json
   def create
-    @pix = Pix.new(pix_params)
-
     respond_to do |format|
       @pix.images.attach(params[:images]) if params[:images]
       if @pix.save
         format.html do
           redirect_to go_to_pix(@pix),
-                      notice: 'pix was successfully created.'
+                      flash: { success: 'Pix was successfully saved.' }
         end
         format.json { render :show, status: :created, location: @pix }
       else
@@ -49,7 +34,7 @@ class PixesController < ApplicationController
       if @pix.update(pix_params)
         format.html do
           redirect_to go_to_pix(@pix),
-                      notice: 'pix was successfully updated.'
+                      flash: { success: 'Pix was successfully saved.' }
         end
         format.json { render :show, status: :ok, location: @pix }
       else
@@ -59,20 +44,21 @@ class PixesController < ApplicationController
     end
   end
 
-  # DELETE /pixes/1
-  # DELETE /pixes/1.json
-  def destroy
-    @pix.destroy
-    respond_to do |format|
-      format.html { redirect_to pixes_url, notice: 'pix was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def restful_object
+    RestfulObject.new(@pix,
+                      params[:pix] && pix_params,
+                      pixes_url)
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_pix
     @pix = Pix.find(params[:id])
+  end
+
+  def build_pix
+    @pix = params['pix'] ? Pix.new(pix_params) : Pix.new
   end
 
   # Never trust parameters from the internet, only allow the white list through.
