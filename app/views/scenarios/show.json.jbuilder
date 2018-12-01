@@ -1,1 +1,1 @@
-json.partial! "scenarios/scenario", scenario: @scenario
+json.partial! 'scenarios/scenario', scenario: @scenario
