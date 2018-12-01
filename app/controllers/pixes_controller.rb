@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Controller to handle routing for Pixes.
+# Create and update route to the character or scenario of the pix.
 class PixesController < ApplicationController
   before_action :set_pix, only: %i[show edit update destroy]
   before_action :build_pix, only: %i[new create]
