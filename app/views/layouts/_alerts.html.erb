@@ -1,0 +1,9 @@
+<% if notice %>
+  <div class="alert alert-info"><%= notice %></div>
+<% end %>
+<% if alert %>
+  <div class="alert alert-light"><%= alert %></div>
+<% end %>
+<% if flash[:success] %>
+  <div class="alert alert-success"><%= flash[:success] %></div>
+<% end %>

@@ -2,6 +2,16 @@
   <a class="navbar-brand" href="#">
     <%= link_to 'Pixie', root_path, class: 'navbar-brand' %>
     <%= link_to 'Characters', characters_path, class: 'nav-link' %>
-    <%= link_to 'Scenarios', scenarios_path, class: 'nav-link' %>  
+    <%= link_to 'Scenarios', scenarios_path, class: 'nav-link' %>
+    <% if current_user&.admin %>
+      <%= link_to 'Users', users_path, class: 'nav-link' %>
+    <% end %>
+
+    <% if current_user %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+    <% else %>
+      <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
+      <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
+    <% end %>
   </a>
 </nav>

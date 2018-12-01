@@ -1,0 +1,9 @@
+<div class="text-light">
+  <% if @user.admin %>
+    <h3>Admin</h3>
+  <% end %>
+  <p><%= "#{@user.id} - #{@user.email}" %></p>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

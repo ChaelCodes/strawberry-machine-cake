@@ -8,6 +8,10 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'simplecov'
 SimpleCov.start
+
+# Adds login helpers to controllers
+require_relative 'support/authentication'
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -62,4 +66,10 @@ RSpec.configure do |config|
 
   # Add FactoryBot methods
   config.include FactoryBot::Syntax::Methods
+
+  # Makes Devise work in controller specs. Adds commands like sign_in, etc.
+  # https://www.rubydoc.info/gems/devise/Devise/Test/ControllerHelpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+
+  config.extend Authentication, type: :controller
 end

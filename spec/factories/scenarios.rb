@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :scenario do
-    name { "MyString" }
+    name { "#1-04 Monster Mama" }
   end
 end
