@@ -99,7 +99,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "updates the requested user" do
         user = User.create! valid_attributes
-        put :update, params: {id: user.to_param, user: new_attributes}
+        put :update, params: { id: user.to_param, user: new_attributes }
         user.reload
         expect(user.admin).to eq true
       end

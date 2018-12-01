@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         end
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'Failed.' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
