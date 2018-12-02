@@ -5,6 +5,7 @@
     <tr>
       <th>Character</th>
       <th>Message</th>
+      <th>Scenario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= link_to pix.character.display_name, pix.character %></td>
         <td><%= pix.msg %></td>
+        <td><%= link_to pix.scenario&.name || '', pix.scenario %></td>
         <td><%= link_to 'Show', pix %></td>
         <td><%= link_to 'Edit', edit_pix_path(pix) %></td>
         <td><%= link_to 'Destroy', pix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
