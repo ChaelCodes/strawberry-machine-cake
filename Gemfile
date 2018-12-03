@@ -21,6 +21,9 @@ gem 'uglifier', '>= 1.3.0'
 # gem for authentication
 gem 'devise'
 
+# Add links to Pixes
+gem 'rails_autolink', '1.1.6'
+
 gem 'loofah', '>= 2.2.3'
 
 # Use CoffeeScript for .coffee assets and views
