@@ -72,7 +72,9 @@ class PixesController < ApplicationController
 
   def go_to_pix(pix)
     if pix.scenario
-      scenario_path pix.scenario, anchor: "pix-#{pix.id}"
+      scenario_path pix.scenario,
+                    anchor: "pix-#{pix.id}",
+                    params: { character_id: pix.character.id }
     else
       character_path pix.character, anchor: "pix-#{pix.id}"
     end

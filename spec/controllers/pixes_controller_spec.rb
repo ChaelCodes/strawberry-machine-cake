@@ -41,7 +41,7 @@ RSpec.describe PixesController, type: :controller do
         it "redirects to the updated pix's scenario page" do
           post :create, params: valid_params
           pix = Pix.find_by(msg: 'PARTY!')
-          expect(response).to redirect_to(scenario_path(pix.scenario, anchor: "pix-#{pix.id}"))
+          expect(response).to redirect_to(scenario_path(pix.scenario, anchor: "pix-#{pix.id}", params: {character_id: pix.character.id}))
         end
       end
     end
@@ -81,7 +81,7 @@ RSpec.describe PixesController, type: :controller do
         let(:pix) { create :pix, scenario: scenario }
 
         it "redirects to the updated pix's scenario page" do
-          expect(response).to redirect_to(scenario_path pix.scenario, anchor: "pix-#{pix.id}")
+          expect(response).to redirect_to(scenario_path pix.scenario, anchor: "pix-#{pix.id}", params: { character_id: pix.character.id})
         end
       end
     end
