@@ -1,6 +1,13 @@
-<nav class="navbar navbar-expand navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <%= link_to 'Pixie', root_path, class: 'navbar-brand' %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+  <a class="navbar-brand" href="#"><%= link_to 'Pixie', root_path, class: 'navbar-brand' %></a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    
     <%= link_to 'Characters', characters_path, class: 'nav-link' %>
     <%= link_to 'Scenarios', scenarios_path, class: 'nav-link' %>
     <% if current_user&.admin %>
@@ -13,5 +20,7 @@
       <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
       <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
     <% end %>
-  </a>
+    
+  </div>
+
 </nav>

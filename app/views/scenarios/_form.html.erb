@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :summary_link %>
+    <%= form.text_field :summary_link, class: 'form-control', placeholder: 'https://' %>
+  </div>
+
+  <div class="field">
     <%= form.label :attending_characters %>
     <%= form.collection_check_boxes :character_ids, Character.all, :id, :itself do |m| %>
       <div class="mb-2">

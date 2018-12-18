@@ -1,7 +1,10 @@
 <h1 class="u-text-white"><%= @scenario.name %></h1>
-<%= link_to 'Edit', edit_scenario_path(@scenario) %> |
-<%= link_to 'Back', scenarios_path %>
-
+<div class="btn-group" role="group" aria-label="Navigation">
+  <%= link_to 'Edit', edit_scenario_path(@scenario), class: 'btn btn-outline-light' %>
+  <%= link_to 'Back', scenarios_path, class: 'btn btn-outline-light' %>
+  <%= link_to 'Summary', @scenario.summary_link, target: '_blank', class: 'btn btn-outline-light' %>
+</div>
+  
 <% @scenario.pixes.order(:created_at).each do |pix| %>
   <%= render 'pixes/view', pix: pix %>
 <% end %>
@@ -16,7 +19,7 @@
       <%= f.text_field :msg, class: 'form-control' %>
     </div>
     <div class="mb-2">
-      <%= f.submit 'Post', type: 'submit', class: 'btn btn-outline-light' %>
+      <%= f.submit 'Post', type: 'submit', class: 'btn' %>
     </div>
   <% end %>
 </div>

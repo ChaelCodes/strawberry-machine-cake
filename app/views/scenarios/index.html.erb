@@ -5,6 +5,7 @@
     <% @scenarios.each do |scenario| %>
       <tr>
         <td><%= link_to scenario.name, scenario %></td>
+        <td><%= link_to scenario.summary_link, scenario.summary_link, target: '_blank' %></td>
         <td><%= link_to 'Edit', edit_scenario_path(scenario) %></td>
         <td><%= link_to 'Destroy', scenario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

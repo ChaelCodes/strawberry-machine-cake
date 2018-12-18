@@ -1,6 +1,6 @@
 <div class="pix" id=<%= "pix-#{pix.id}" %>>
   <%= render 'characters/header', character: pix.character %>
-  <%= content_tag :p, pix.msg %>
+  <%= content_tag :p, pix.msg, class: 'text-dark' %>
   <% if pix.images.attached? %>
     <div id="pixImages" class="carousel slide">
       <ol class="carousel-indicators">
